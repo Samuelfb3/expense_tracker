@@ -13,6 +13,7 @@ def add_expense(category, amount, description):
     print("Expense added successfully.")
 
 
+
 #Get the expenses from file, helpful to sort categories or amount.
 def load_expenses():
     expenses = []
