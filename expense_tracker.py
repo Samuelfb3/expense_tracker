@@ -39,6 +39,22 @@ def load_expenses():
 
     return expenses
 
+#Func to calculate total by category.
+def show_category_totals():
+    expenses = load_expenses()
+    if not expenses:
+        print("No expenses found yet.")
+        return
+
+    totals = {}
+    for e in expenses:
+        cat = e["category"].strip()
+        totals[cat] = totals.get(cat, 0.0) + e["amount"]
+
+    print("\nCATEGORY TOTALS")
+    print("-" * 25)
+    for cat in sorted(totals.keys()):
+        print(f"{cat:<15} ${totals[cat]:.2f}")
 
 
 #func search expense
