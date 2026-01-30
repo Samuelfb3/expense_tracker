@@ -72,7 +72,8 @@ while True:
     print("\nPersonal Budget Tracker")
     print("1. Add expense")
     print("2. View expenses")
-    print("3. Exit")
+    print("3. Show totals by category")
+    print("4. Exit")
 
     choice = input("Choose an option: ")
 
@@ -86,6 +87,10 @@ while True:
         view_expenses()
 
     elif choice == "3":
+        show_category_totals()
+
+            
+    elif choice == "4":
         print("Goodbye.")
         break
 
