@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../python"
+		},
+		{
+			"name": "expense_tracker",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
