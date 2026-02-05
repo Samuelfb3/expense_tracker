@@ -67,14 +67,34 @@ def view_expenses():
     except FileNotFoundError:
         print("No expenses found yet.")
 
+#func to calculate expenses by month
+def monthly_expenses(month):
+    expenses = load_expenses()
+    total_month = 0
+
+    
+    month = month.zfill(2)
+    for e in expenses:
+        date_str = e["date"]
+        part = date_str.split("-")
+        expense_month = part[1]
+
+        if expense_month == month:
+            total_month += e["amount"]
+            
+    
+    print(f"\nTOTAL SPENT ON MONTH {month}")
+    print("Matched Expenses: ", total_month)
+
+
 #Main program
 while True:
     print("\nPersonal Budget Tracker")
     print("1. Add expense")
     print("2. View expenses")
     print("3. Show totals by category")
-    print("4. Exit")
-
+    print("4. Show monthly expenses")
+    print("5. Exit")
     choice = input("Choose an option: ")
 
     if choice == "1":
@@ -89,8 +109,11 @@ while True:
     elif choice == "3":
         show_category_totals()
 
-            
     elif choice == "4":
+        month = input("What month would you like to calculate? (enter the number): ")
+        monthly_expenses(month)
+
+    elif choice == "5":
         print("Goodbye.")
         break
 
